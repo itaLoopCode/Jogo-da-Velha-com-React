@@ -1,3 +1,6 @@
+
+Este código demonstra a estrutura básica de um jogo da velha construído com componentes React. Ele lida com a gestão de turnos, atualizações de estado do jogo, detecção de vencedores e permite o acompanhamento do histórico do jogo.
+
 ### Componente Square:
 
 * Este componente representa um único quadrado no jogo da velha.
@@ -41,5 +44,3 @@
 * Ele itera por cada combinação vencedora e verifica se todos os quadrados na linha têm o mesmo valor ('X' ou 'O').
 * Se uma combinação vencedora for encontrada, ela retorna o jogador vencedor ('X' ou 'O').
 * Caso contrário, retorna nulo.
-
-Este código demonstra a estrutura básica de um jogo da velha construído com componentes React. Ele lida com a gestão de turnos, atualizações de estado do jogo, detecção de vencedores e permite o acompanhamento do histórico do jogo. A implementação da função `jumpTo` está faltando, mas pode ser adicionada para permitir a navegação por movimentos anteriores.
