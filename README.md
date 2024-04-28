@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+### Componente Square:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* Este componente representa um único quadrado no jogo da velha.
+* Ele recebe duas props:
+    * `valor`: O valor atual do quadrado (seja 'X', 'O' ou null).
+    * `onSquareClick`: Uma função a ser chamada quando o quadrado é clicado.
+* Ele renderiza um elemento de botão que exibe o `valor` e chama a função `onSquareClick` quando clicado.
 
-## Available Scripts
+### Componente Board:
 
-In the project directory, you can run:
+* Este componente representa todo o tabuleiro do jogo da velha.
+* Ele recebe três props:
+    * `xIsNext`: Um booleano que indica se é a vez de X ou O.
+    * `quadrados`: Um array contendo o estado atual de todos os quadrados (9 elementos).
+    * `onPlay`: Uma função a ser chamada quando um quadrado é clicado.
+* Ele define uma função `handleClick` que lida com cliques em quadrados individuais.
+    * Ele verifica se já há um vencedor ou se o quadrado está preenchido antes de continuar.
+    * Cria uma cópia do array `quadrados` (`nextSquares`).
+    * Atualiza o quadrado clicado com a marca do jogador atual (X ou O).
+    * Chama a função `onPlay` para atualizar o estado com os novos `nextSquares`.
+* Ele calcula o vencedor usando a função `calculateWinner`.
+* Define a mensagem de status do jogo com base no vencedor ou no jogador atual.
+* Renderiza o tabuleiro com 3 linhas, cada uma contendo 3 componentes `Square`.
 
-### `npm start`
+### Componente Game (Principal):
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Este componente gerencia o estado geral do jogo e a lógica.
+* Ele usa o hook `useState` do React para manter o estado do jogo:
+    * `xIsNext`: Rastreia quem está jogando.
+    * `história`: Um array contendo a história de todos os estados do tabuleiro após cada movimento.
+* Ele define funções para lidar com ações do jogo:
+    * `handlePlay`: Atualiza o histórico com o novo estado do tabuleiro e troca as jogadas.
+    * `jumpTo` (incompleto): Esta função deve lidar com a mudança para um movimento anterior no histórico do jogo (atualmente não implementado).
+* Ele calcula uma lista de movimentos (botões) para permitir que você pule para estados anteriores na história do jogo.
+* Renderiza o jogo com o tabuleiro e a lista de histórico de movimentos.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Função calculateWinner:
 
-### `npm test`
+* Esta função verifica se há um vencedor no estado atual do tabuleiro.
+* Ele define um array contendo todas as combinações vencedoras (linhas de 3 quadrados).
+* Ele itera por cada combinação vencedora e verifica se todos os quadrados na linha têm o mesmo valor ('X' ou 'O').
+* Se uma combinação vencedora for encontrada, ela retorna o jogador vencedor ('X' ou 'O').
+* Caso contrário, retorna nulo.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este código demonstra a estrutura básica de um jogo da velha construído com componentes React. Ele lida com a gestão de turnos, atualizações de estado do jogo, detecção de vencedores e permite o acompanhamento do histórico do jogo. A implementação da função `jumpTo` está faltando, mas pode ser adicionada para permitir a navegação por movimentos anteriores.
