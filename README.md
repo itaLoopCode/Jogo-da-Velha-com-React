@@ -33,7 +33,7 @@ Este código demonstra a estrutura básica de um jogo da velha construído com c
     * `história`: Um array contendo a história de todos os estados do tabuleiro após cada movimento.
 * Ele define funções para lidar com ações do jogo:
     * `handlePlay`: Atualiza o histórico com o novo estado do tabuleiro e troca as jogadas.
-    * `jumpTo` (incompleto): Esta função deve lidar com a mudança para um movimento anterior no histórico do jogo (atualmente não implementado).
+    * `jumpTo`: Esta função lida com a mudança para um movimento anterior no histórico do jogo (atualmente não implementado).
 * Ele calcula uma lista de movimentos (botões) para permitir que você pule para estados anteriores na história do jogo.
 * Renderiza o jogo com o tabuleiro e a lista de histórico de movimentos.
 
