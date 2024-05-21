@@ -2,7 +2,7 @@
 Este código demonstra a estrutura básica de um jogo da velha construído com componentes React. Ele lida com a gestão de turnos, atualizações de estado do jogo, detecção de vencedores e permite o acompanhamento do histórico do jogo.
 
 ### Componente Square:
- 
+
 * Este componente representa um único quadrado no jogo da velha.
 * Ele recebe duas props:
     * `valor`: O valor atual do quadrado (seja 'X', 'O' ou null).
